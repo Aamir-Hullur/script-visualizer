@@ -29,6 +29,7 @@ class Settings(BaseSettings):
 
     # Storage Configuration
     BASE_DIR: Path = Path(__file__).resolve().parent.parent
+    print(f"Base Directory: {BASE_DIR}")
     
     # Ensure all directories are under app/ as per project guidelines
     SCRIPTS_DIR: Path = BASE_DIR / "scripts"
@@ -43,6 +44,7 @@ class Settings(BaseSettings):
         """Create required directories"""
         for directory in [self.SCRIPTS_DIR, self.OUTPUTS_DIR, self.LOGS_DIR]:
             directory.mkdir(parents=True, exist_ok=True)
+            print(f"Ensuring directory exists: {directory}")
 
 
 @lru_cache()

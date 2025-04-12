@@ -3,31 +3,31 @@ import sys
 from pathlib import Path
 from app.core.config import get_settings
 
-settings = get_settings()
-
 def setup_logging():
+    # Get application settings
+    settings = get_settings()
+    
     # Create logs directory if it doesn't exist
-    settings.LOGS_DIR.mkdir(exist_ok=True)
+    log_dir = settings.LOGS_DIR
+    log_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Create absolute log file path
+    log_file_path = log_dir / "app.log"
+    print(f"Setting up logging to: {log_file_path.absolute()}")
     
     # Configure logging
-    log_file = settings.LOGS_DIR / "app.log"
-    
-    # Configure root logger
     logging.basicConfig(
-        level=getattr(logging, settings.LOG_LEVEL),
-        format=settings.LOG_FORMAT,
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
         handlers=[
-            logging.FileHandler(log_file),
+            logging.FileHandler(log_file_path),
             logging.StreamHandler(sys.stdout)
         ]
     )
     
-    # Create and configure application logger
+    # Create logger
     logger = logging.getLogger("visualization-api")
-    logger.setLevel(getattr(logging, settings.LOG_LEVEL))
-    
+    logger.info(f"Logging initialized. Log file: {log_file_path.absolute()}")
     return logger
 
-# Initialize logger
 logger = setup_logging()
-logger.info("Logging configured successfully")

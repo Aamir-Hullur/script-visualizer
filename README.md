@@ -1,6 +1,6 @@
 # Script Visualizer
 
-A modern web application that allows users to generate data visualizations from Python and R scripts. This project emphasizes security, performance, and user experience by executing code in isolated containers and providing a rich development environment. The application fetches the latest code and updates via MCP servers to ensure consistency and freshness across environments.
+A web application that allows users to generate data visualizations from Python and R scripts. This project emphasizes performance, and user experience by executing code in isolated docker containers and providing a rich development environment. 
 
 ## Tech Stack
 
@@ -79,7 +79,7 @@ VITE_BACKEND_URL=http://localhost:8000
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/Aamir-Hullur/script-visualizer.git
+git clone <repository-url>
 ```
 
 2. **Backend Setup**

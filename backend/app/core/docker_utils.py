@@ -65,7 +65,7 @@ class DockerManager:
                 command=command,
                 volumes=volumes,
                 working_dir='/scripts',
-                network_disabled=not settings.DOCKER_NETWORK_ACCESS,
+                network_disabled=settings.DOCKER_NETWORK_ACCESS,
                 mem_limit=settings.DOCKER_MEMORY_LIMIT,
                 cpu_period=100000,
                 cpu_quota=int(settings.DOCKER_CPU_LIMIT * 100000),

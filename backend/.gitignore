@@ -1,0 +1,19 @@
+# Environment
+.env
+.env.*
+!.env.example
+
+# Generated directories
+app/logs/*
+app/scripts/*
+app/outputs/*
+!app/logs/.gitkeep
+!app/scripts/.gitkeep
+!app/outputs/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+.venv*
