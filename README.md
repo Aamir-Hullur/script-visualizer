@@ -41,10 +41,6 @@ A modern web application that allows users to generate data visualizations from 
    - Copy-to-clipboard functionality
    - Error handling with user-friendly messages
 
-5. **MCP Integration**:
-   - Connects to MCP servers for code updates
-   - Ensures consistent visualization environments
-
 ## Development Challenges & Solutions
 
 1. **Container Security**
