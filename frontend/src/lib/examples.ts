@@ -194,7 +194,7 @@ p <- ggplot(data, aes(x = x, y = y)) +
   )
 
 # Save the plot - the backend will handle the output path
-ggsave("output.png", p, width = 8, height = 6, dpi = 300)`,
+ggsave("output.png", p, width = 6, height = 4, dpi = 100)`,
 
     interactive: ` `,
   }

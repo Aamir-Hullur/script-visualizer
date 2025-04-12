@@ -2,6 +2,10 @@
 
 A web application that allows users to generate data visualizations from Python and R scripts. This project emphasizes performance, and user experience by executing code in isolated docker containers and providing a rich development environment. 
 
+## Demo
+
+![Demo Video](https://github.com/Aamir-Hullur/script-visualizer/assets/Demo.mp4)
+
 ## Tech Stack
 
 ### Frontend
