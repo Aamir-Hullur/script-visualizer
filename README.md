@@ -5,7 +5,7 @@ A web application that allows users to generate data visualizations from Python 
 ## Demo
 
 <div align="center">
-   <img src="https://raw.githubusercontent.com/Aamir-Hullur/script-visualizer/refs/heads/main/assets/Demo-copy.gif" width="800" alt="Demo Video">
+   <img src="https://raw.githubusercontent.com/Aamir-Hullur/script-visualizer/refs/heads/main/assets/Demo.gif" width="800" alt="Demo Video">
 </div>
 
 ## Tech Stack
