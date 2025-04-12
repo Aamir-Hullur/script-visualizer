@@ -49,21 +49,45 @@ A web application that allows users to generate data visualizations from Python 
 
 ## Development Challenges & Solutions
 
-1. **Container Security**
-   - **Challenge**: Ensuring secure execution of user-submitted code
-   - **Solution**: Implemented strict Docker container policies with resource limits and network isolation
+#### 1. **Secure Execution of Dynamic Code**
+**Issue:**  
+Executing arbitrary Python and R scripts from user input posed a significant security risk, including the potential for code injection or resource exhaustion.
 
-2. **Cross-Language Support**
-   - **Challenge**: Supporting both Python and R visualizations consistently
-   - **Solution**: Created standardized output handlers for both languages and unified the API interface
+**Resolution:**  
+To mitigate this:
+- A sandboxed environment (Docker containers) was implemented to isolate script execution.
+- Resource limits (CPU/memory/timeouts) were set on containers to prevent abuse.
+- Only specific packages required for visualization (e.g., `matplotlib`, `plotly`, `ggplot2`) were pre-installed to limit what scripts could access.
 
-3. **Performance Optimization**
-   - **Challenge**: Handling long-running visualization scripts
-   - **Solution**: Implemented proper timeout mechanisms and resource monitoring
 
-4. **State Management**
-   - **Challenge**: Managing complex UI state with multiple visualization options
-   - **Solution**: Utilized React's built-in state management with custom hooks for complex state logic
+#### 2. **Rendering and Serving Visualizations**
+**Issue:**  
+Returning visualizations from backend execution to the frontend required supporting multiple formats (e.g., static PNG, interactive HTML).
+
+**Resolution:**  
+- For **static charts**, image files (PNG) were saved and served via a public endpoint.
+- For **interactive charts**, the backend captured and returned full HTML snippets (e.g., from Plotly or R’s htmlwidgets), which were embedded in an `<iframe>` on the frontend.
+
+
+#### 3. **Error Handling and Debugging**
+**Issue:**  
+Errors in user-submitted code were initially hard to trace and led to silent failures, making it difficult for users to understand what went wrong.
+
+**Resolution:**  
+- Integrated **Monaco Editor** on the frontend to enhance the code editing experience with syntax highlighting and error hints.
+- Improved backend logging to capture and return detailed error messages (e.g., syntax errors, missing libraries).
+
+
+#### 4. **Docker Image Build Time and Size**
+**Issue:**  
+The initial Docker images — particularly for the Python environment — were large and slow to build, which negatively impacted development speed and deployment readiness.
+
+**Resolution:**  
+- Switched to the `python:3.11-slim` base image to significantly reduce the Python container size.
+- Installed only the essential visualization libraries (`matplotlib`, `plotly`) to avoid unnecessary dependencies.
+- Applied Docker layer caching and cleanup (e.g., using `--no-cache-dir` with pip) to speed up rebuilds and reduce final image size.
+- Used a similar minimal setup for the R container to keep both environments lean and efficient.
+
 
 ## Environment Configuration
 
@@ -230,4 +254,3 @@ flowchart TD
 3. Collaborative features
 4. User accounts and saved visualizations
 5. Adding a download button
-6. Custom dataset upload functionality
