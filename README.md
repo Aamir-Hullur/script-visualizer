@@ -79,7 +79,7 @@ VITE_BACKEND_URL=http://localhost:8000
 
 1. **Clone the repository**
 ```bash
-git clone <repository-url>
+git clone https://github.com/Aamir-Hullur/script-visualizer.git
 ```
 
 2. **Backend Setup**

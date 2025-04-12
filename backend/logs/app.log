@@ -36,3 +36,5 @@
 2025-04-11 18:46:23,303 - visualization-api - INFO - Deleted temporary script file: scripts/script_4572814d.py
 2025-04-11 18:53:24,687 - visualization-api - INFO - Logging initialized. Log file: /Users/aamirhullur/Documents/Projects/Self-made/CNS-Assessment/backend/logs/app.log
 2025-04-11 18:53:24,714 - visualization-api - INFO - Mounting output directory for static file serving: /Users/aamirhullur/Documents/Projects/Self-made/CNS-Assessment/backend/outputs
+2025-04-11 21:44:05,613 - visualization-api - INFO - Logging initialized. Log file: /Users/aamirhullur/Documents/Projects/Self-made/CNS-Assessment/backend/logs/app.log
+2025-04-11 21:44:05,654 - visualization-api - INFO - Mounting output directory for static file serving: /Users/aamirhullur/Documents/Projects/Self-made/CNS-Assessment/backend/outputs
